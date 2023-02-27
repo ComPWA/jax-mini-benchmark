@@ -9,7 +9,7 @@ git clone https://github.com/ComPWA/jax-mini-benchmark
 cd jax-mini-benchmark
 conda env create
 conda activate jax-mini-benchmark
-bash benchmark-jax.sh
+python3 benchmark_jax.py
 ```
 
-The resulting benchmark is rendered as an HTML page (`visualize-benchmark.html`).
+The resulting benchmark can be viewed in `jax-benchmark-$HOSTNAME.svg`.

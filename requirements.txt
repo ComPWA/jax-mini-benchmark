@@ -1,5 +1,10 @@
-notebook
+black
+isort
 jax
 jaxlib
 matplotlib
+notebook
 pandas
+py-cpuinfo
+PyYAML
+tqdm
