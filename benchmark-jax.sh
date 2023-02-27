@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Running with all cores..."
 jupyter nbconvert --execute benchmark-jax.ipynb --to html
 rm benchmark-jax.html
