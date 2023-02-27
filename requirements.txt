@@ -3,7 +3,6 @@ isort
 jax
 jaxlib
 matplotlib
-notebook
 py-cpuinfo
 PyYAML
 tqdm
