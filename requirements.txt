@@ -3,6 +3,7 @@ isort
 jax
 jaxlib
 matplotlib
+pre-commit
 py-cpuinfo
 PyYAML
 tqdm
