@@ -9,7 +9,11 @@ python3 -m pip git+https://github.com/ComPWA/jax-mini-benchmark@main
 benchmark-jax
 ```
 
-The resulting benchmark can be viewed in `jax-benchmark-$HOSTNAME.svg`.
+The resulting benchmark can be viewed in `jax-benchmark-$HOSTNAME.svg`. If you do not want to view the resulting plot directly, like when you run this command in a script, add the `--no-show` flag:
+
+```shell
+benchmark-jax --no-show
+```
 
 ## Help developing
 

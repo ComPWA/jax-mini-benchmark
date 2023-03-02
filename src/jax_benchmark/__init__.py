@@ -30,12 +30,17 @@ def main() -> int:
         help="Number of times that the job should be run on a single repeat",
         type=int,
     )
+    parser.add_argument(
+        "--no-show",
+        action="store_true",
+        help="Do not show benchmark plot after benchmark run",
+    )
     args = parser.parse_args()
     benchmarks = benchmark_cpu_range(
         repeat=args.repeat,
         number=args.number,
     )
-    visualize(benchmarks)
+    visualize(benchmarks, show=not args.no_show)
     return 0
 
 
@@ -54,7 +59,7 @@ def benchmark_cpu_range(number: int, repeat: int) -> dict[int, dict]:
     return benchmarks
 
 
-def visualize(benchmarks: dict[int, dict]) -> None:
+def visualize(benchmarks: dict[int, dict], show: bool) -> None:
     import matplotlib.pyplot as plt
     import numpy as np
 
@@ -76,6 +81,8 @@ def visualize(benchmarks: dict[int, dict]) -> None:
     ax.set_xlabel("Number of CPUs")
     ax.set_ylabel("Average time (s)")
     fig.savefig(filename)
+    if show:
+        plt.show()
 
 
 def run_single_benchmark(
