@@ -1,5 +1,5 @@
 *.egg-info/
 *.svg
 __pycache__/
+benchmark-results/
 condaenv.*.requirements.txt
-results/*.yaml

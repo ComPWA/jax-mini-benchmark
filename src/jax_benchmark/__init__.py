@@ -85,7 +85,7 @@ def run_single_benchmark(
     filename = get_benchmark_filename(n_cpus)
     if not os.path.exists(filename):
         shape_str = "x".join(map(str, shape))
-        filename.parent.mkdir(exist_ok=True)
+        filename.parent.mkdir(exist_ok=True, parents=True)
         subprocess.call(
             (
                 f"taskset -c 0-{n_cpus-1}"
@@ -103,7 +103,7 @@ def run_single_benchmark(
 
 def get_benchmark_filename(n_cpus: int) -> Path:
     host_name = socket.gethostname()
-    return Path(f"results/dot-product-{host_name}-{n_cpus}-cpus.yaml")
+    return Path(f"benchmark-results/{host_name}/dot-product-{n_cpus}-cpus.yaml")
 
 
 def get_figure_filename() -> str:
