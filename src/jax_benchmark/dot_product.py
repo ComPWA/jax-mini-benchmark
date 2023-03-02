@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import argparse
 import logging
-import os
-import socket
 import timeit
 
-import cpuinfo
 import yaml
+
+from jax_benchmark.io import get_machine_info, mute_warnings
 
 
 def main() -> int:
@@ -41,6 +40,7 @@ def main() -> int:
         type=int,
     )
     args = parser.parse_args()
+    mute_warnings()
     benchmarks = run_benchmark(
         shape=tuple(int(i) for i in args.shape.split("x")),
         repeat=args.repeat,
@@ -72,15 +72,6 @@ def run_benchmark(shape: tuple[int, int], number: int, repeat: int) -> dict:
         "shape": "x".join(map(str, shape)),
         "machine_info": get_machine_info(),
     }
-
-
-def get_machine_info() -> dict:
-    info = {
-        "host_name": socket.gethostname(),
-        "scheduled_cpus": sorted(os.sched_getaffinity(0)),
-    }
-    info.update(cpuinfo.get_cpu_info())
-    return info
 
 
 if __name__ == "__main__":

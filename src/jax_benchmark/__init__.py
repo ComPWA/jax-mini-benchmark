@@ -31,7 +31,6 @@ def main() -> int:
         type=int,
     )
     args = parser.parse_args()
-    mute_warnings()
     benchmarks = benchmark_cpu_range(
         repeat=args.repeat,
         number=args.number,
@@ -70,7 +69,9 @@ def visualize(benchmarks: dict[int, dict]) -> None:
     filename = get_figure_filename()
     _, ymax = ax.get_ylim()
     hostname = socket.gethostname()
-    fig.suptitle(f"JAX dot product on {hostname}")
+    first_benchmark, *_ = benchmarks.values()
+    jax_version = first_benchmark["machine_info"]["jax_version"]
+    fig.suptitle(f"JAX v{jax_version} dot product on {hostname}")
     ax.set_ylim(0, ymax)
     ax.set_xlabel("Number of CPUs")
     ax.set_ylabel("Average time (s)")
