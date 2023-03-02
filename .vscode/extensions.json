@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "ms-python.python",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "tamasfe.even-better-toml",
+    "tyriar.sort-lines",
+    "yzhang.markdown-all-in-one"
+  ]
+}
