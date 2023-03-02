@@ -5,6 +5,7 @@ import os
 import socket
 import subprocess
 from pathlib import Path
+from textwrap import dedent
 
 import yaml
 from tqdm.auto import tqdm
@@ -80,6 +81,14 @@ def visualize(benchmarks: dict[int, dict], show: bool) -> None:
     jax_version = first_benchmark["machine_info"]["jax_version"]
     fig.suptitle(f"JAX v{jax_version} dot product on {hostname}")
     ax.set_ylim(0, ymax)
+    repeat = first_benchmark["repeat"]
+    number = first_benchmark["number_of_runs"]
+    text = f"""
+    number of repeats: {repeat}
+    runs per repeat: {number}
+    """
+    text = dedent(text).strip()
+    ax.text(0.67, 0.91, text, ma="right", transform=ax.transAxes)
     ax.set_xlabel("Number of CPUs")
     ax.set_ylabel("Average time (s)")
     fig.savefig(filename)
