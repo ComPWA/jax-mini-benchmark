@@ -46,6 +46,8 @@ def main() -> int:
 
 def benchmark_cpu_range(number: int, repeat: int) -> dict[int, dict]:
     n_available_cpus = os.cpu_count()
+    if n_available_cpus is None:
+        raise OSError("Could not determine number of CPUs")
     print(
         f"Machine has {n_available_cpus} CPUs."
         " JAX will be benchmarked over a range of them."

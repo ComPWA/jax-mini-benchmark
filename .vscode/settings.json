@@ -7,5 +7,6 @@
   "editor.formatOnSave": true,
   "isort.importStrategy": "fromEnvironment",
   "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "basic",
   "python.formatting.provider": "black"
 }

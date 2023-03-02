@@ -12,7 +12,7 @@ else:
 
 
 def enable_x64() -> None:
-    from jax.config import config
+    from jax.config import config  # pyright: ignore[reportPrivateImportUsage]
 
     config.update("jax_enable_x64", True)
 
