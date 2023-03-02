@@ -72,6 +72,37 @@ Source = "https://github.com/ComPWA/jax-mini-benchmark"
 Tracker = "https://github.com/ComPWA/jax-mini-benchmark/issues"
 
 
+[tool.black]
+exclude = '''
+/(
+    .*\.egg-info
+    | .*build
+    | \.eggs
+    | \.git
+    | \.pytest_cache
+    | \.tox
+    | \.venv
+    | \.vscode
+    | dist
+)/
+'''
+include = '\.pyi?$'
+target-version = [
+    "py310",
+    "py311",
+    "py37",
+    "py38",
+    "py39",
+]
+
+
+[tool.isort]
+profile = "black"
+src_paths = [
+    "src",
+]
+
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
