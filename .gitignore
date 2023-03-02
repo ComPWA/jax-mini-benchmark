@@ -1,3 +1,5 @@
+*.egg-info/
 *.svg
+__pycache__/
 condaenv.*.requirements.txt
 results/*.yaml

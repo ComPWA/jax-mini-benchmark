@@ -88,7 +88,7 @@ def run_single_benchmark(
         filename.parent.mkdir(exist_ok=True)
         subprocess.call(
             f"taskset -c 0-{n_cpus-1}"
-            " python3 benchmarks/dot_product.py"
+            " benchmark-jax-dot-product"
             f" --output={filename}"
             f" --number={number}"
             f" --repeat={repeat}"
