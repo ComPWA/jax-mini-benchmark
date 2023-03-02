@@ -7,14 +7,7 @@ import socket
 import timeit
 
 import cpuinfo
-import jax.numpy as jnp
 import yaml
-from jax import random
-from jax.config import config
-
-config.update("jax_enable_x64", True)
-logging.getLogger("jax").setLevel(logging.ERROR)
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 
 def main() -> int:
@@ -61,6 +54,9 @@ def main() -> int:
 
 
 def run_benchmark(shape: tuple[int, int], number: int, repeat: int) -> dict:
+    import jax.numpy as jnp
+    from jax import random
+
     array = random.normal(
         key=random.PRNGKey(0),
         shape=shape,

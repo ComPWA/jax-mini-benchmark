@@ -1,21 +1,15 @@
 from __future__ import annotations
 
 import argparse
-import logging
 import os
 import socket
 import subprocess
 from pathlib import Path
 
-import matplotlib.pyplot as plt
-import numpy as np
 import yaml
-from jax.config import config
 from tqdm.auto import tqdm
 
-config.update("jax_enable_x64", True)
-logging.getLogger("jax").setLevel(logging.ERROR)
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+from jax_benchmark.io import mute_warnings
 
 
 def main() -> int:
@@ -37,6 +31,7 @@ def main() -> int:
         type=int,
     )
     args = parser.parse_args()
+    mute_warnings()
     benchmarks = benchmark_cpu_range(
         repeat=args.repeat,
         number=args.number,
@@ -61,6 +56,9 @@ def benchmark_cpu_range(number: int, repeat: int) -> dict[int, dict]:
 
 
 def visualize(benchmarks: dict[int, dict]) -> None:
+    import matplotlib.pyplot as plt
+    import numpy as np
+
     fig, ax = plt.subplots()
     x = np.array(sorted(benchmarks))
     data = np.array([benchmarks[n_cpus]["results_in_seconds"] for n_cpus in x])
