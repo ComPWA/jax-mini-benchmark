@@ -87,6 +87,7 @@ exclude = '''
 )/
 '''
 include = '\.pyi?$'
+preview = true
 target-version = [
     "py310",
     "py311",
