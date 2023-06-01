@@ -5,7 +5,7 @@ This package provides a set of benchmark scripts that can be used to profile JAX
 The benchmarks can be run by installing the package with [`pip`](https://pypi.org/project/pip) and running it as follows:
 
 ```shell
-python3 -m pip git+https://github.com/ComPWA/jax-mini-benchmark@main
+python3 -m pip install git+https://github.com/ComPWA/jax-mini-benchmark@main
 benchmark-jax
 ```
 
