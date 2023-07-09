@@ -1,6 +1,10 @@
 ci:
   autoupdate_commit_msg: "MAINT: autoupdate pre-commit hooks"
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
+  skip:
+    - pyright
+    - taplo
+
 repos:
   - repo: meta
     hooks:
@@ -42,9 +46,21 @@ repos:
     hooks:
       - id: prettier
 
+  - repo: https://github.com/ComPWA/mirrors-pyright
+    rev: v1.1.316
+    hooks:
+      - id: pyright
+
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.9.0
     hooks:
       - id: pyupgrade
         args:
           - --py37-plus
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.0.277
+    hooks:
+      - id: ruff
+        args:
+          - --fix
