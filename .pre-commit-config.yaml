@@ -64,3 +64,8 @@ repos:
       - id: ruff
         args:
           - --fix
+
+  - repo: https://github.com/ComPWA/mirrors-taplo
+    rev: v0.8.0
+    hooks:
+      - id: taplo
