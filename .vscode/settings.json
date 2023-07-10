@@ -5,8 +5,8 @@
     }
   },
   "editor.formatOnSave": true,
-  "isort.importStrategy": "fromEnvironment",
-  "python.analysis.diagnosticMode": "workspace",
-  "python.analysis.typeCheckingMode": "basic",
-  "python.formatting.provider": "black"
+  "python.analysis.typeCheckingMode": "strict",
+  "python.formatting.provider": "black",
+  "ruff.enable": true,
+  "ruff.importStrategy": "fromEnvironment"
 }

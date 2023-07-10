@@ -1,6 +1,10 @@
 ci:
   autoupdate_commit_msg: "MAINT: autoupdate pre-commit hooks"
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
+  skip:
+    - pyright
+    - taplo
+
 repos:
   - repo: meta
     hooks:
@@ -27,7 +31,7 @@ repos:
       - id: black
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.7.1
+    rev: 2.7.2
     hooks:
       - id: editorconfig-checker
         name: editorconfig-checker
@@ -38,13 +42,30 @@ repos:
       - id: isort
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.6
+    rev: v3.0.0
     hooks:
       - id: prettier
 
+  - repo: https://github.com/ComPWA/mirrors-pyright
+    rev: v1.1.316
+    hooks:
+      - id: pyright
+
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
+    rev: v3.9.0
     hooks:
       - id: pyupgrade
         args:
           - --py37-plus
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.0.277
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+
+  - repo: https://github.com/ComPWA/mirrors-taplo
+    rev: v0.8.0
+    hooks:
+      - id: taplo

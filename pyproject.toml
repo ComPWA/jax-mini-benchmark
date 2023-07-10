@@ -51,16 +51,11 @@ readme = "README.md"
 requires-python = ">=3.7"
 
 [project.optional-dependencies]
-dev = [
-    "jax-mini-benchmark[sty]",
-]
-format = [
-    "black",
-    "isort",
-]
+dev = ["jax-mini-benchmark[sty]"]
 sty = [
-    "jax-mini-benchmark[format]",
+    "black",
     "pre-commit",
+    "ruff",
 ]
 
 [project.scripts]
@@ -71,7 +66,6 @@ benchmark-jax-dot-product = "jax_benchmark.dot_product:main"
 Documentation = "https://github.com/ComPWA/jax-mini-benchmark"
 Source = "https://github.com/ComPWA/jax-mini-benchmark"
 Tracker = "https://github.com/ComPWA/jax-mini-benchmark/issues"
-
 
 [tool.black]
 exclude = '''
@@ -97,13 +91,61 @@ target-version = [
     "py39",
 ]
 
-
-[tool.isort]
-profile = "black"
-src_paths = [
-    "src",
+[tool.pyright]
+exclude = [
+    "**/*.egg-info",
+    "**/.git",
+    "**/.ipynb_checkpoints",
+    "**/.mypy_cache",
+    "**/.pytest_cache",
+    "**/.tox",
+    "**/__pycache__",
+    "**/_build",
+    ".ruff_cache/**",
 ]
+reportGeneralTypeIssues = false
+reportMissingTypeArgument = false
+reportMissingTypeStubs = false
+reportUnknownArgumentType = false
+reportUnknownMemberType = false
+reportUnknownParameterType = false
+reportUnknownVariableType = false
+typeCheckingMode = "strict"
 
+[tool.ruff]
+extend-select = [
+    "A",
+    "B",
+    "BLE",
+    "C4",
+    "C90",
+    "EM",
+    "ERA",
+    "FA",
+    "I",
+    "ICN",
+    "INP",
+    "ISC",
+    "N",
+    "NPY",
+    "PGH",
+    "PIE",
+    "PL",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+show-fixes = true
+src = ["src"]
+target-version = "py37"
+task-tags = ["cspell"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -10,8 +10,6 @@ from textwrap import dedent
 import yaml
 from tqdm.auto import tqdm
 
-from jax_benchmark.io import mute_warnings
-
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -48,7 +46,8 @@ def main() -> int:
 def benchmark_cpu_range(number: int, repeat: int) -> dict[int, dict]:
     n_available_cpus = os.cpu_count()
     if n_available_cpus is None:
-        raise OSError("Could not determine number of CPUs")
+        msg = "Could not determine number of CPUs"
+        raise OSError(msg)
     print(
         f"Machine has {n_available_cpus} CPUs."
         " JAX will be benchmarked over a range of them."

@@ -3,13 +3,22 @@
     "eamodio.gitlens",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
+    "garaioag.garaio-vscode-unwanted-recommendations",
     "github.vscode-pull-request-github",
+    "ms-python.black-formatter",
     "ms-python.python",
+    "ms-python.vscode-pylance",
     "ms-toolsai.jupyter",
     "ms-toolsai.jupyter-keymap",
     "ms-toolsai.jupyter-renderers",
     "tamasfe.even-better-toml",
     "tyriar.sort-lines",
     "yzhang.markdown-all-in-one"
+  ],
+  "unwantedRecommendations": [
+    "ms-python.flake8",
+    "ms-python.isort",
+    "ms-python.mypy-type-checker",
+    "ms-python.pylint"
   ]
 }
