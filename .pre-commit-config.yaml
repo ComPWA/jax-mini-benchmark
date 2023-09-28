@@ -33,6 +33,11 @@ repos:
         args: [--line-length=85]
         types_or: [jupyter]
 
+  - repo: https://github.com/ComPWA/repo-maintenance
+    rev: 0.0.199
+    hooks:
+      - id: colab-toc-visible
+
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.7.2
     hooks:
