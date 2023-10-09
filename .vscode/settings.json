@@ -1,12 +1,19 @@
 {
+  "[git-commit]": {
+    "editor.rulers": [72],
+    "rewrap.wrappingColumn": 72
+  },
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
-    }
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.rulers": [88]
   },
+  "black-formatter.importStrategy": "fromEnvironment",
   "editor.formatOnSave": true,
   "python.analysis.typeCheckingMode": "strict",
-  "python.formatting.provider": "black",
+  "rewrap.wrappingColumn": 88,
   "ruff.enable": true,
   "ruff.importStrategy": "fromEnvironment"
 }
