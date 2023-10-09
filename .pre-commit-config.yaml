@@ -34,15 +34,28 @@ repos:
         types_or: [jupyter]
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.199
+    rev: 0.1.0rc2
     hooks:
       - id: colab-toc-visible
+      - id: check-dev-files
+        args:
+          - --no-github-actions
+          - --no-gitpod
+          - --no-prettierrc
+          - --no-pypi
+          - --no-ruff
+          - --repo-name=jax-mini-benchmark
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.7.2
     hooks:
       - id: editorconfig-checker
-        name: editorconfig-checker
+        name: editorconfig
+        alias: ec
+        exclude: >-
+          (?x)^(
+            .*\.py
+          )$
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
@@ -77,3 +90,10 @@ repos:
     rev: v0.8.1
     hooks:
       - id: taplo
+
+  - repo: https://github.com/pappasam/toml-sort
+    rev: v0.23.1
+    hooks:
+      - id: toml-sort
+        args:
+          - --in-place

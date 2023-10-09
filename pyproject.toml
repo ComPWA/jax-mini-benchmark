@@ -6,6 +6,9 @@ requires = [
 ]
 
 [project]
+authors = [
+    {name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"},
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -42,12 +45,11 @@ keywords = [
     "physics",
     "tensorflow",
 ]
-license = { file = "LICENSE" }
+license = {file = "LICENSE"}
 maintainers = [
-    { name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de" },
+    {name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"},
 ]
 name = "jax-mini-benchmark"
-readme = "README.md"
 requires-python = ">=3.7"
 
 [project.optional-dependencies]
@@ -58,6 +60,10 @@ sty = [
     "ruff",
 ]
 
+[project.readme]
+content-type = "text/markdown"
+file = "README.md"
+
 [project.scripts]
 benchmark-jax = "jax_benchmark:main"
 benchmark-jax-dot-product = "jax_benchmark.dot_product:main"
@@ -66,6 +72,15 @@ benchmark-jax-dot-product = "jax_benchmark.dot_product:main"
 Documentation = "https://github.com/ComPWA/jax-mini-benchmark"
 Source = "https://github.com/ComPWA/jax-mini-benchmark"
 Tracker = "https://github.com/ComPWA/jax-mini-benchmark/issues"
+
+[tool.setuptools.package-data]
+jax_benchmark = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+write_to = "src/jax_benchmark/_version.py"
 
 [tool.black]
 exclude = '''
@@ -147,12 +162,16 @@ src = ["src"]
 target-version = "py37"
 task-tags = ["cspell"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
-
-[tool.setuptools.package-data]
-jax_benchmark = ["py.typed"]
-
-
-[tool.setuptools_scm]
-write_to = "src/jax_benchmark/_version.py"
+[tool.tomlsort]
+all = false
+ignore_case = true
+in_place = true
+sort_first = [
+    "build-system",
+    "project",
+    "tool.setuptools",
+    "tool.setuptools_scm",
+]
+sort_table_keys = true
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true

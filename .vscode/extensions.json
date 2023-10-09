@@ -11,14 +11,18 @@
     "ms-toolsai.jupyter",
     "ms-toolsai.jupyter-keymap",
     "ms-toolsai.jupyter-renderers",
+    "stkb.rewrap",
     "tamasfe.even-better-toml",
     "tyriar.sort-lines",
     "yzhang.markdown-all-in-one"
   ],
   "unwantedRecommendations": [
+    "bungcip.better-toml",
+    "davidanson.vscode-markdownlint",
     "ms-python.flake8",
     "ms-python.isort",
     "ms-python.mypy-type-checker",
-    "ms-python.pylint"
+    "ms-python.pylint",
+    "travisillig.vscode-json-stable-stringify"
   ]
 }
