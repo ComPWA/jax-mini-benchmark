@@ -2,6 +2,7 @@ ci:
   autoupdate_commit_msg: "MAINT: autoupdate pre-commit hooks"
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
   skip:
+    - prettier
     - pyright
     - taplo
 
@@ -10,6 +11,19 @@ repos:
     hooks:
       - id: check-hooks-apply
       - id: check-useless-excludes
+
+  - repo: https://github.com/ComPWA/repo-maintenance
+    rev: 0.1.11
+    hooks:
+      - id: colab-toc-visible
+      - id: check-dev-files
+        args:
+          - --no-github-actions
+          - --no-gitpod
+          - --no-prettierrc
+          - --no-pypi
+          - --no-ruff
+          - --repo-name=jax-mini-benchmark
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
@@ -25,26 +39,13 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-  - repo: https://github.com/psf/black
-    rev: 23.12.1
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: PLEASE-UPDATE
     hooks:
       - id: black
       - id: black-jupyter
         args: [--line-length=85]
         types_or: [jupyter]
-
-  - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.1.11
-    hooks:
-      - id: colab-toc-visible
-      - id: check-dev-files
-        args:
-          - --no-github-actions
-          - --no-gitpod
-          - --no-prettierrc
-          - --no-pypi
-          - --no-ruff
-          - --repo-name=jax-mini-benchmark
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: 2.7.3

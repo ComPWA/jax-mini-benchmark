@@ -11,7 +11,9 @@
     "editor.rulers": [88]
   },
   "black-formatter.importStrategy": "fromEnvironment",
+  "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
+  "multiDiffEditor.experimental.enabled": true,
   "python.analysis.typeCheckingMode": "strict",
   "rewrap.wrappingColumn": 88,
   "ruff.enable": true,
