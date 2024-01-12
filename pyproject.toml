@@ -53,7 +53,20 @@ name = "jax-mini-benchmark"
 requires-python = ">=3.7"
 
 [project.optional-dependencies]
-dev = ["jax-mini-benchmark[sty]"]
+dev = [
+    "jax-mini-benchmark[jupyter]",
+    "jax-mini-benchmark[sty]",
+]
+jupyter = [
+    "isort",
+    "jupyterlab",
+    "jupyterlab-code-formatter",
+    "jupyterlab-git",
+    "jupyterlab-lsp",
+    "jupyterlab-myst",
+    "python-lsp-ruff",
+    "python-lsp-server[rope]",
+]
 sty = [
     "black",
     "pre-commit",
