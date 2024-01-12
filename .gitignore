@@ -3,3 +3,4 @@
 __pycache__/
 benchmark-results/
 condaenv.*.requirements.txt
+node_modules/
