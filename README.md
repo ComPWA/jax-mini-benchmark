@@ -29,4 +29,4 @@ conda activate jax-mini-benchmark
 pre-commit install  # optional, but recommended
 ```
 
-See ComPWA's [Help developing](https://compwa-org.readthedocs.io/develop.html) for more info.
+See ComPWA's [Help developing](https://compwa.github.io/develop) for more info.
