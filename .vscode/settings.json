@@ -1,21 +1,31 @@
 {
   "[git-commit]": {
-    "editor.rulers": [72],
+    "editor.rulers": [
+      72
+    ],
     "rewrap.wrappingColumn": 72
+  },
+  "[json]": {
+    "editor.wordWrap": "on"
   },
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.rulers": [88]
+    "editor.rulers": [
+      88
+    ]
   },
   "black-formatter.importStrategy": "fromEnvironment",
   "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
+  "gitlens.telemetry.enabled": false,
   "multiDiffEditor.experimental.enabled": true,
   "python.analysis.typeCheckingMode": "strict",
+  "redhat.telemetry.enabled": false,
   "rewrap.wrappingColumn": 88,
   "ruff.enable": true,
-  "ruff.importStrategy": "fromEnvironment"
+  "ruff.importStrategy": "fromEnvironment",
+  "telemetry.telemetryLevel": "off"
 }
