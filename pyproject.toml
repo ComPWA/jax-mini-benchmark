@@ -58,6 +58,7 @@ dev = [
     "jax-mini-benchmark[sty]",
 ]
 jupyter = [
+    "black",
     "isort",
     "jupyterlab",
     "jupyterlab-code-formatter",
@@ -68,7 +69,6 @@ jupyter = [
     "python-lsp-server[rope]",
 ]
 sty = [
-    "black",
     "pre-commit",
     "ruff",
 ]
@@ -95,30 +95,6 @@ where = ["src"]
 [tool.setuptools_scm]
 write_to = "src/jax_benchmark/_version.py"
 
-[tool.black]
-exclude = '''
-/(
-    .*\.egg-info
-    | .*build
-    | \.eggs
-    | \.git
-    | \.pytest_cache
-    | \.tox
-    | \.venv
-    | \.vscode
-    | dist
-)/
-'''
-include = '\.pyi?$'
-preview = true
-target-version = [
-    "py310",
-    "py311",
-    "py37",
-    "py38",
-    "py39",
-]
-
 [tool.pyright]
 exclude = [
     "**/*.egg-info",
@@ -141,12 +117,24 @@ reportUnknownVariableType = false
 typeCheckingMode = "strict"
 
 [tool.ruff]
+extend-include = ["*.ipynb"]
+preview = true
+show-fixes = true
+src = ["src"]
+target-version = "py37"
+
+[tool.ruff.format]
+docstring-code-format = true
+line-ending = "lf"
+
+[tool.ruff.lint]
 extend-select = [
     "A",
     "B",
     "BLE",
     "C4",
     "C90",
+    "D",
     "EM",
     "ERA",
     "FA",
@@ -163,17 +151,61 @@ extend-select = [
     "RET",
     "RSE",
     "RUF",
+    "S",
     "SIM",
+    "T20",
     "TCH",
     "TID",
     "TRY",
     "UP",
     "YTT",
 ]
-show-fixes = true
-src = ["src"]
-target-version = "py37"
+ignore = [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D107",
+    "D203",
+    "D213",
+    "D407",
+    "D416",
+    "E501",
+    "ISC001",
+    "PLC0415",
+    "PLW1514",
+    "S404",
+    "S602",
+    "SIM108",
+    "T201",
+]
 task-tags = ["cspell"]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = [
+    "B018",
+    "C90",
+    "D",
+    "E703",
+    "N806",
+    "N816",
+    "PLR09",
+    "PLR2004",
+    "PLW0602",
+    "PLW0603",
+    "S101",
+    "T20",
+    "TCH00",
+]
+"visualize-benchmark.ipynb" = ["S301", "S403"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.tomlsort]
 all = false
