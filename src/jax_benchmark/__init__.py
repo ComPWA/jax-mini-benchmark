@@ -103,7 +103,7 @@ def run_single_benchmark(
         shape_str = "x".join(map(str, shape))
         filename.parent.mkdir(exist_ok=True, parents=True)
         subprocess.call(
-            f"taskset -c 0-{n_cpus-1}"
+            f"taskset -c 0-{n_cpus - 1}"
             " benchmark-jax-dot-product"
             f" --output={filename}"
             f" --number={number}"

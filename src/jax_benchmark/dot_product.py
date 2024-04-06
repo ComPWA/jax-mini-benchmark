@@ -42,7 +42,9 @@ def main() -> int:
     args = parser.parse_args()
     mute_warnings()
     benchmarks = run_benchmark(
-        shape=tuple(int(i) for i in args.shape.split("x")),
+        shape=tuple(  # pyright:ignore[reportArgumentType]
+            int(i) for i in args.shape.split("x")
+        ),
         repeat=args.repeat,
         number=args.number,
     )
