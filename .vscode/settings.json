@@ -16,6 +16,7 @@
   "black-formatter.importStrategy": "fromEnvironment",
   "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
+  "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "gitlens.telemetry.enabled": false,
   "multiDiffEditor.experimental.enabled": true,
   "python.analysis.typeCheckingMode": "strict",
