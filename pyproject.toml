@@ -143,6 +143,7 @@ ignore = [
     "D416",
     "DOC",
     "E501",
+    "FBT00",
     "FURB101",
     "FURB103",
     "FURB140",
@@ -161,6 +162,7 @@ select = ["ALL"]
 task-tags = ["cspell"]
 
 [tool.ruff.lint.flake8-builtins]
+builtins-allowed-modules = ["io"]
 builtins-ignorelist = ["display"]
 
 [tool.ruff.lint.flake8-comprehensions]
@@ -179,6 +181,7 @@ split-on-trailing-comma = false
     "E703",
     "N806",
     "N816",
+    "PD901",
     "PLR09",
     "PLR2004",
     "PLW0602",
@@ -187,7 +190,7 @@ split-on-trailing-comma = false
     "T20",
     "TCH00",
 ]
-"visualize-benchmark.ipynb" = ["S301", "S403"]
+"visualize-benchmark.ipynb" = ["S301", "S403", "W391"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
