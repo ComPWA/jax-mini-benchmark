@@ -24,6 +24,7 @@ repos:
           - --no-prettierrc
           - --no-pypi
           - --repo-name=jax-mini-benchmark
+      - id: remove-empty-tags
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.5.6
