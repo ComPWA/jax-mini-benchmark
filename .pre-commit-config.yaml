@@ -13,7 +13,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.3.9
+    rev: 0.3.18
     hooks:
       - id: colab-toc-visible
       - id: check-dev-files
@@ -26,7 +26,7 @@ repos:
           - --repo-name=jax-mini-benchmark
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.0
+    rev: v0.5.6
     hooks:
       - id: ruff
         args: [--fix]
@@ -77,6 +77,6 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.369
+    rev: v1.1.374
     hooks:
       - id: pyright
