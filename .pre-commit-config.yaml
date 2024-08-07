@@ -18,6 +18,7 @@ repos:
       - id: colab-toc-visible
       - id: check-dev-files
         args:
+          - --dev-python-version=3.12
           - --no-github-actions
           - --no-gitpod
           - --no-prettierrc
