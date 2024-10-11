@@ -1,6 +1,7 @@
+__pycache__/
+build/
 *.egg-info/
 *.svg
-__pycache__/
 benchmark-results/
 condaenv.*.requirements.txt
 node_modules/
