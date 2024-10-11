@@ -1,14 +1,9 @@
 import logging
 import os
 import socket
-import sys
+from importlib.metadata import version
 
 import cpuinfo
-
-if sys.version_info < (3, 8):
-    from importlib_metadata import version
-else:
-    from importlib.metadata import version
 
 
 def enable_x64() -> None:
