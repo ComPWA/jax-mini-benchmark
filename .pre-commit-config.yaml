@@ -3,6 +3,7 @@ ci:
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
   skip:
     - pyright
+    - uv-lock
 
 repos:
   - repo: meta
@@ -76,3 +77,8 @@ repos:
     rev: v1.1.384
     hooks:
       - id: pyright
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.4.20
+    hooks:
+      - id: uv-lock
