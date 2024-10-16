@@ -3,5 +3,5 @@ build/
 *.egg-info/
 *.svg
 benchmark-results/
-condaenv.*.requirements.txt
 node_modules/
+uv.lock

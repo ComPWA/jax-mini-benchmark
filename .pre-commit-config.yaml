@@ -1,10 +1,8 @@
 ci:
-  autoupdate_commit_msg: "MAINT: autoupdate pre-commit hooks"
+  autoupdate_commit_msg: "MAINT: update lock files"
   autoupdate_schedule: quarterly # already done by requirements-cron.yml
   skip:
-    - prettier
     - pyright
-    - taplo
 
 repos:
   - repo: meta
@@ -13,21 +11,18 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.3.18
+    rev: 0.5.0rc5
     hooks:
       - id: colab-toc-visible
       - id: check-dev-files
         args:
-          - --dev-python-version=3.12
-          - --no-github-actions
-          - --no-gitpod
-          - --no-prettierrc
+          - --no-cd
           - --no-pypi
           - --repo-name=jax-mini-benchmark
       - id: remove-empty-tags
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.6
+    rev: v0.6.9
     hooks:
       - id: ruff
         args: [--fix]
@@ -36,7 +31,7 @@ repos:
         types_or: [python, pyi, jupyter]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -49,15 +44,15 @@ repos:
       - id: mixed-line-ending
       - id: trailing-whitespace
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
+  - repo: https://github.com/ComPWA/prettier-pre-commit
+    rev: v3.3.3
     hooks:
       - id: prettier
 
-  - repo: https://github.com/ComPWA/mirrors-taplo
-    rev: v0.8.1
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
     hooks:
-      - id: taplo
+      - id: taplo-format
 
   - repo: https://github.com/pappasam/toml-sort
     rev: v0.23.1
@@ -67,7 +62,7 @@ repos:
           - --in-place
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.7.3
+    rev: 3.0.3
     hooks:
       - id: editorconfig-checker
         name: editorconfig
@@ -77,7 +72,7 @@ repos:
             .*\.py
           )$
 
-  - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.374
+  - repo: https://github.com/ComPWA/pyright-pre-commit
+    rev: v1.1.384
     hooks:
       - id: pyright
