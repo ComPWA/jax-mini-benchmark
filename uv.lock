@@ -549,7 +549,7 @@ dependencies = [
     { name = "tqdm" },
 ]
 
-[package.optional-dependencies]
+[package.dependency-groups]
 dev = [
     { name = "jupyterlab" },
     { name = "jupyterlab-code-formatter" },
@@ -569,28 +569,36 @@ jupyter = [
     { name = "python-lsp-ruff" },
     { name = "python-lsp-server", extra = ["rope"] },
 ]
-sty = [
-    { name = "ruff" },
-]
 
 [package.metadata]
 requires-dist = [
     { name = "jax" },
-    { name = "jax-mini-benchmark", extras = ["jupyter"], marker = "extra == 'dev'" },
-    { name = "jax-mini-benchmark", extras = ["sty"], marker = "extra == 'dev'" },
     { name = "jaxlib" },
-    { name = "jupyterlab", marker = "extra == 'jupyter'" },
-    { name = "jupyterlab-code-formatter", marker = "extra == 'jupyter'", specifier = ">=3.0.0" },
-    { name = "jupyterlab-git", marker = "extra == 'jupyter'" },
-    { name = "jupyterlab-lsp", marker = "extra == 'jupyter'" },
-    { name = "jupyterlab-myst", marker = "extra == 'jupyter'" },
     { name = "matplotlib" },
     { name = "py-cpuinfo" },
-    { name = "python-lsp-ruff", marker = "extra == 'jupyter'" },
-    { name = "python-lsp-server", extras = ["rope"], marker = "extra == 'jupyter'" },
     { name = "pyyaml" },
-    { name = "ruff", marker = "extra == 'sty'" },
     { name = "tqdm" },
+]
+
+[package.metadata.dependency-groups]
+dev = [
+    { name = "jupyterlab" },
+    { name = "jupyterlab-code-formatter" },
+    { name = "jupyterlab-git" },
+    { name = "jupyterlab-lsp" },
+    { name = "jupyterlab-myst" },
+    { name = "python-lsp-ruff" },
+    { name = "python-lsp-server", extras = ["rope"] },
+    { name = "ruff" },
+]
+jupyter = [
+    { name = "jupyterlab" },
+    { name = "jupyterlab-code-formatter" },
+    { name = "jupyterlab-git" },
+    { name = "jupyterlab-lsp" },
+    { name = "jupyterlab-myst" },
+    { name = "python-lsp-ruff" },
+    { name = "python-lsp-server", extras = ["rope"] },
 ]
 
 [[package]]
