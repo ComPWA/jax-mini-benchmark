@@ -35,25 +35,6 @@ maintainers = [
 name = "jax-mini-benchmark"
 requires-python = ">=3.12"
 
-[project.optional-dependencies]
-dev = [
-    "jax-mini-benchmark[jupyter]",
-    "jax-mini-benchmark[sty]",
-]
-jupyter = [
-    "jupyterlab",
-    "jupyterlab-code-formatter >=3.0.0",
-    "jupyterlab-git",
-    "jupyterlab-lsp",
-    "jupyterlab-myst",
-    "python-lsp-ruff",
-    "python-lsp-server[rope]",
-]
-sty = [
-    "pre-commit-uv",
-    "ruff",
-]
-
 [project.readme]
 content-type = "text/markdown"
 file = "README.md"
@@ -66,6 +47,21 @@ benchmark-jax-dot-product = "jax_benchmark.dot_product:main"
 Documentation = "https://github.com/ComPWA/jax-mini-benchmark"
 Source = "https://github.com/ComPWA/jax-mini-benchmark"
 Tracker = "https://github.com/ComPWA/jax-mini-benchmark/issues"
+
+[dependency-groups]
+dev = [
+    "ruff",
+    {include-group = "jupyter"},
+]
+jupyter = [
+    "jupyterlab",
+    "jupyterlab-code-formatter",
+    "jupyterlab-git",
+    "jupyterlab-lsp",
+    "jupyterlab-myst",
+    "python-lsp-ruff",
+    "python-lsp-server[rope]",
+]
 
 [tool.setuptools.package-data]
 jax_benchmark = ["py.typed"]
