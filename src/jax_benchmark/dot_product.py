@@ -6,6 +6,8 @@ import yaml
 
 from jax_benchmark.io import get_machine_info, mute_warnings
 
+_LOGGER = logging.getLogger(__name__)
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -49,7 +51,7 @@ def main() -> int:
     output_file = args.output
     with open(output_file, "w") as f:
         yaml.safe_dump(benchmarks, f, sort_keys=False)
-    logging.info(f"Benchmark written to {output_file}")
+    _LOGGER.info(f"Benchmark written to {output_file}")
     return 0
 
 
