@@ -21,8 +21,8 @@ repos:
           - --no-pypi
           - --repo-name=jax-mini-benchmark
       - id: remove-empty-tags
-
       - id: set-nb-display-name
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.9.3
     hooks:
