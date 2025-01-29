@@ -73,18 +73,6 @@ where = ["src"]
 write_to = "src/jax_benchmark/_version.py"
 
 [tool.pyright]
-exclude = [
-    "**/*.egg-info",
-    "**/.git",
-    "**/.ipynb_checkpoints",
-    "**/.mypy_cache",
-    "**/.pytest_cache",
-    "**/.tox",
-    "**/.venv/",
-    "**/__pycache__",
-    "**/_build",
-    ".ruff_cache/**",
-]
 reportGeneralTypeIssues = false
 reportMissingTypeArgument = false
 reportMissingTypeStubs = false
