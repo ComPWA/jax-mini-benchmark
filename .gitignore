@@ -1,6 +1,6 @@
 __pycache__/
-build/
+.ipynb_checkpoints/
+.virtual_documents/
 *.egg-info/
 *.svg
 benchmark-results/
-node_modules/

@@ -50,6 +50,8 @@ Tracker = "https://github.com/ComPWA/jax-mini-benchmark/issues"
 
 [dependency-groups]
 dev = [
+    "nbmake",
+    "poethepoet",
     "ruff",
     {include-group = "jupyter"},
 ]
@@ -72,6 +74,21 @@ where = ["src"]
 [tool.setuptools_scm]
 write_to = "src/jax_benchmark/_version.py"
 
+[tool.poe]
+executor.type = "uv"
+
+[tool.poe.tasks.all]
+help = "Run all continuous integration (CI) tasks locally"
+sequence = ["style", "nb"]
+
+[tool.poe.tasks.nb]
+help = "Run all notebooks"
+sequence = [{cmd = "benchmark-jax"}, {cmd = "pytest"}]
+
+[tool.poe.tasks.style]
+cmd = "pre-commit run --all-files"
+help = "Perform all linting, formatting, and spelling checks"
+
 [tool.pyright]
 reportGeneralTypeIssues = false
 reportMissingTypeArgument = false
@@ -83,6 +100,20 @@ reportUnknownVariableType = false
 typeCheckingMode = "strict"
 venv = ".venv"
 venvPath = "."
+
+[tool.pytest.ini_options]
+addopts = [
+    "--durations=0",
+    "--nbmake",
+    "--nbmake-timeout=0",
+]
+filterwarnings = [
+    "error",
+]
+norecursedirs = [
+    ".ipynb_checkpoints",
+    ".virtual_documents",
+]
 
 [tool.ruff]
 extend-include = ["*.ipynb"]
