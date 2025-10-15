@@ -33,7 +33,7 @@ maintainers = [
     {name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"},
 ]
 name = "jax-mini-benchmark"
-requires-python = ">=3.12"
+requires-python = "~=3.13.0"
 
 [project.readme]
 content-type = "text/markdown"
@@ -61,6 +61,7 @@ jupyter = [
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
+    "jupyterlab-quickopen",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
 ]
@@ -80,6 +81,11 @@ executor.type = "uv"
 [tool.poe.tasks.all]
 help = "Run all continuous integration (CI) tasks locally"
 sequence = ["style", "nb"]
+
+[tool.poe.tasks.lab]
+args = [{name = "paths", default = "", positional = true}]
+cmd = "jupyter lab ${paths}"
+help = "Run Jupyter Lab"
 
 [tool.poe.tasks.nb]
 help = "Run all notebooks"
@@ -181,7 +187,6 @@ split-on-trailing-comma = false
     "E703",
     "N806",
     "N816",
-    "PD901",
     "PLR09",
     "PLR2004",
     "PLW0602",
